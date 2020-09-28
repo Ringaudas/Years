@@ -1,0 +1,135 @@
+import java.util.Scanner;
+
+public class Years{
+        
+    public static void main(String[] args) {
+        gettingYearValues();
+    }
+
+    static void gettingYearValues()
+    {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter any year value");
+        int fromYear = reader.nextInt();
+        System.out.println("Enter any year value again");
+        int toYear = reader.nextInt();
+        reader.close();
+        printBonusDatesBetween(fromYear,toYear);
+    }
+    
+    static void printBonusDatesBetween(int fromYear, int toYear){
+        int []Months = {31,28,31,30,31,30,31,31,30,31,30,31};
+        int n = fromYear-toYear;
+        if(n>0) 
+        {
+            int temp = toYear;
+            toYear = fromYear;
+            fromYear = temp;
+        }
+
+
+
+        int currentYear = fromYear;
+        int currentMonth = 1;
+        int currentDay = 2;
+
+        int iterations = 0;
+
+        while(true)
+        {
+            System.out.print(currentYear);
+            System.out.print("-");
+            System.out.print(currentMonth);
+            System.out.print("-");
+            System.out.print(currentDay);
+            System.out.print("\r\n");
+
+            iterations++; //to check if reversing dates wont change iteration quantity
+            //iterations do not represent total amount of days between years because of switch statement
+            if(n == 0)break;
+
+            if(currentYear==toYear-1 && currentMonth == 12 && currentDay == 31) break;
+            
+            //checking how many days we have in a month
+            //if currentDay has the same amount of days as the month we jump to next month
+            switch(currentMonth){ 
+                case 1:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 2:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 3:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 4:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 5:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break; 
+                case 6:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 7:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 8:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 9:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 10:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 11:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentMonth++; currentDay=1;
+                } 
+                break;
+                case 12:
+                if(currentDay == Months[currentMonth-1])
+                {
+                    currentYear++; currentMonth =1; currentDay=1;
+                } 
+                break;
+            }
+
+            currentDay++;
+        }
+        System.out.print("iterations quantity = ");
+        System.out.print(iterations);
+    }
+}
